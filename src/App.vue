@@ -1,30 +1,44 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <nav-bar></nav-bar>
   <router-view/>
 </template>
 
+<script>
+import NavBar from '@/components/NavBar.vue'
+import { useHead } from 'unhead'
+export default {
+  components: {
+    NavBar
+  },
+  setup() {
+    useHead({
+      title: 'My awesome site'
+    })
+  },
+}
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+
+.fade-enter-active, .fade-leave-active{
+  transition: opacity .5s;
 }
 
-nav {
-  padding: 30px;
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+#nprogress .bar {
+  background: var(--nprogress-bar) !important;
+  height: 3px !important;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+#nprogress .peg {
+  box-shadow: var(--nprogress-peg) !important;
+}
+
+#nprogress .spinner-icon{
+  border-top-color: var(--main-color) !important;
+  border-left-color: var(--main-color) !important;
 }
 </style>

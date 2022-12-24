@@ -1,0 +1,33 @@
+*{
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: "Monsterrat", sans-serif !important;
+}
+
+:root {
+    --main-color: #2dc55f;
+    --color-white-1: #ffffff;
+    --color-black: #000;
+    --bg-white: #fff; 
+    --gray10_100: #e8e9ec;
+    --nprogress-bar: rgb(10, 166, 121);
+    --nprogress-peg: rgb(10 166 121) 0px 0px 10px, rgb(10 166 121) 0px 0px 5px;
+}
+
+.container {
+    display: flex;
+    margin: 0 auto;
+    padding: 0 20px;
+    min-width: 320px;
+    max-width: 1376px !important;
+}
+
+
+
+
