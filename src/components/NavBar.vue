@@ -10,7 +10,34 @@
                 <nav class="ml-auto">
                     <ul class="mb-0 navbar-ul descktop-menu pl-0">
                         <li class="navbar-ul-li">
-                            <router-link to="/">Главная</router-link>
+                            <router-link :to="{name: 'home'}">Главная</router-link>
+                        </li>
+                        <li class="navbar-ul-li">
+                            <router-link :to="{name: 'services'}">Услуги</router-link>
+                        </li>
+                        <li class="navbar-ul-li">
+                            <router-link :to="{name: 'portfolios'}">Портфолио</router-link>
+                        </li>
+                        <li class="navbar-ul-li">
+                            <router-link :to="{name: 'contacts'}">Контакты</router-link>
+                        </li>
+                        <li class="navbar-ul-li d-flex">
+                            <a-space>
+                                <a-select
+                                ref="select"
+                                v-model:value="value1"
+                                style="width: auto"
+                                @focus="focus"
+                                @change="handleChange"
+                                :bordered="false"
+                                dropdownClassName="lang_select"
+                                :dropdownMatchSelectWidth="80"
+                                >
+                                <a-select-option value="jack">Jack</a-select-option>
+                                <a-select-option value="lucy">Lucy</a-select-option>
+                                <a-select-option value="Yiminghe">yiminghe</a-select-option>
+                                </a-select>
+                            </a-space>
                         </li>
                     </ul>
                 </nav>
@@ -19,13 +46,30 @@
     </header>
 </template>
 
+<script>
+import { ref } from 'vue';
+
+export default {
+    setup() {
+        const focus = () => {
+            console.log('focus');
+        };
+
+        const handleChange = (value) => {
+            console.log(`selected ${value}`);
+        };
+
+        return {
+            focus,
+            handleChange,
+            value1: ref('lucy'),
+        }
+    },
+}
+</script>
+
 <style scoped>
 .header_navbar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: auto;
     width: 100%;
     -webkit-box-ordinal-group: 1;
     -webkit-box-flex: 0;
@@ -48,7 +92,7 @@
 
 .navbar-box .nabvar__block-logo{
     font-size: 25px;
-    color: var(--color-white-1);
+    color: var(--color-black);
     font-weight: 700;
     text-decoration: none;
     align-items: center;
@@ -90,14 +134,14 @@
 
 .navbar-box nav  .navbar-ul li a {
     align-items: center;
-    color: var(--color-white-1);
+    color: var(--color-black);
     cursor: pointer;
     display: flex;
     font-size: 16px;
     font-weight: 600;
     height: 100%;
     line-height: 20px;
-    padding: 0 8px;
+    padding: 0 10px;
     position: relative;
     text-decoration: none;
     transition: all .4s ease;
@@ -106,12 +150,28 @@
     border-color: transparent;
 }
 
-.navbar-box nav  .navbar-ul li a.router-link-active{
-    border-bottom-color: var(--main-color);
+.navbar-box nav  .navbar-ul li a:after{
+    content: '';
+    position: absolute;
+    width: 0px;
+    height: 5px;
+    left: 50%;
+    bottom: 0;
+    background-color: var(--main-color);
+    border-radius: 3px;
+    transition: all ease-in-out .2s;
 }
+
+.navbar-box nav  .navbar-ul li a:hover:after,
+.navbar-box nav  .navbar-ul li a.router-link-active:after{
+    width: 100%;
+    left: 0;
+}
+
 .navbar-box nav  .navbar-ul li a:hover{
     color: var(--main-color);
 }
+
 /* .navbar-box {
     background: var(--bg-white);
     border-bottom: 1px solid var(--gray10_100);

@@ -29,5 +29,94 @@ body{
 }
 
 
+/***************************** Home page  start **********************************************************/
+.main-heading{
+    position: relative;
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    min-height: 300px;
+    height: 700px;
+    background-color: rgba(0, 0, 0, 0.644);
+    background-blend-mode: multiply;
+}
 
 
+.header_box{
+    padding: 60px 30px 40px;
+}
+.home-slider{
+    position: relative;
+    overflow: hidden;
+}
+
+.home-slider .swiper{
+    height: 100%;
+}
+
+.home-slider .swiper .swiper-button-next {
+    right: 5%;
+}
+.home-slider .swiper .swiper-button-prev {
+    left: 5%;
+}
+
+.home-slider .swiper-button-next,
+.home-slider .swiper-button-prev {
+    width: 50px;
+    height: 50px;
+    background: var(--main-color);
+    border-radius: 50%;
+}
+
+.home-slider .swiper-button-next:after, 
+.home-slider .swiper-button-prev:after {
+    font-size: 20px;
+    color: var(--bg-white);
+    font-weight: 600;
+}
+
+.header_content .title {
+    color: var(--color-white-1);
+    font-size: 80px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.header_content  .btn_modal{
+    margin: 20px 0 0 0;
+	border: none;
+	padding: 10px 44px;
+	font-size: 25px;
+	position: relative;
+    border-radius: 50px;
+}
+
+.header_content  .btn_modal:before{
+    transition: all 0.85s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    content: '';
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50px;
+    width: 25%;
+    background: var(--main-color);
+}
+
+.header_content  .btn_modal .btn-text{
+    color: var(--color-black);
+    mix-blend-mode: multiply;
+}
+
+.header_content  .btn_modal:hover:before{
+    background: var(--main-color);
+	width: 100%;
+}
+
+
+/***************************** Home page  end **********************************************************/
